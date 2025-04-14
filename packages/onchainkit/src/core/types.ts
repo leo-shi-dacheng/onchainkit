@@ -64,6 +64,21 @@ export type IsBaseOptions = {
 };
 
 /**
+ * @deprecated Use IsHashkeyOptions instead
+ */
+export type isHashkeyOptions = IsHashkeyOptions;
+
+/**
+ * Note: exported as public Type
+ */
+export type IsHashkeyOptions = {
+  /** Chain ID for the network */
+  chainId: number;
+  /** If the chainId check is only allowed on mainnet */
+  isMainnetOnly?: boolean;
+};
+
+/**
  * @deprecated Use IsBaseOptions instead
  */
 export type isBaseOptions = IsBaseOptions;
