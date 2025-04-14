@@ -9,7 +9,11 @@ import {
   polygon,
   polygonMumbai,
   sepolia,
+  hashkey,
+  hashkeyTestnet,
 } from 'viem/chains';
+
+const defaultExplorer = 'https://hashkeychain-testnet-explorer.alt.technology';
 
 const chainExplorerMap: Record<number, string> = {
   [baseSepolia.id]: 'https://sepolia.basescan.org',
@@ -22,12 +26,14 @@ const chainExplorerMap: Record<number, string> = {
   [polygonMumbai.id]: 'https://mumbai.polygonscan.com',
   [mainnet.id]: 'https://etherscan.io',
   [sepolia.id]: 'https://sepolia.etherscan.io',
+  [hashkey.id]: 'https://hashkey.blockscout.com',
+  [hashkeyTestnet.id]: 'https://hashkeychain-testnet-explorer.alt.technology',
 };
 
 export function getChainExplorer(chainId?: number) {
   if (!chainId) {
-    return 'https://basescan.org';
+    return defaultExplorer;
   }
 
-  return chainExplorerMap[chainId] ?? 'https://basescan.org';
+  return chainExplorerMap[chainId] ?? defaultExplorer;
 }
